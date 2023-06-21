@@ -4,6 +4,10 @@
   font-family: 'Noto Sans';
 }
 
+::-webkit-scrollbar {
+  width: 0;
+}
+
 @font-face{
   font-family: 'Noto Sans';
   src: url(./fonts/NotoSans-Regular.ttf);
@@ -15,13 +19,14 @@
 }
 
 .container{
-  margin-left: 5.104vw;
-  margin-right: 5.104vw;
-  margin-top: 5vw;
+  padding-left: 5.104vw;
+  padding-right: 5.104vw;
+  padding-top: 5vw;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  margin-bottom: 100px;
 }
 
 .container__item{
@@ -35,7 +40,7 @@ input{
   width: 564px;
   border: 1px solid #CCCCCC;
   border-radius: 8px;
-  padding-left: 16px;
+  padding-left: 15px;
   padding-right: 18px;
   font-family: 'Noto Sans';
   font-style: normal;
@@ -54,8 +59,7 @@ input:invalid {
   border: 2px solid #EB5757;
   background-image: url(./images/warning.svg);   
   background-repeat: no-repeat;  
-  position: relative;
-  background-position: 98%; 
+  background-position: 97%; 
 }
 
 label{
@@ -70,14 +74,17 @@ label{
 }
 
 .textMini{
-  margin-top: 8px;
+  position: relative;
+  top: 8px;
   font-family: 'Noto Sans';
   font-size: 12px;
-  font-weight: 400;
   line-height: 18px;
-  letter-spacing: 0em;
-  text-align: left;
   color: #666666;
+  margin-left: 0;
+}
+
+.textRed{
+  color: #EB5757;
 }
 
 .switch {
@@ -86,6 +93,7 @@ label{
   justify-content: center;
   width: 60px;
   margin-bottom: 0;
+  height: 24px;
 }
 
 .switch input {
@@ -97,6 +105,10 @@ label{
 .switch p{
   position: relative;
   left: 38px;
+}
+
+.heightFix{
+  height: 24px;
 }
 
 .slider {
@@ -111,6 +123,7 @@ label{
   border: 1px solid #CCCCCC;
   width: 49px;
   height: 24px;
+  transform: rotate(180deg)
 }
 
 .slider:before {
@@ -189,11 +202,16 @@ p{
   letter-spacing: 0em;
   text-align: left;
   color: #666666;
-  margin-left: 16px;
+  margin-left: 15px;
+  margin-bottom: 8px;
 }
 
 .checkbox-wrapper{
   margin-bottom: 32px;
+}
+
+.checkbox-wrapper p{
+  margin-left: 5px;
 }
 
 .checkbox-wrapper input {
@@ -206,7 +224,7 @@ p{
   display: block;
   position: relative;
   padding-left: 35px;
-  margin-bottom: 12px;
+  margin-bottom: 32px;
   cursor: pointer;
   font-size: 17px;
   user-select: none;
@@ -216,8 +234,8 @@ p{
   position: absolute;
   top: 0;
   left: 0;
-  height: 24px;
-  width: 24px;
+  height: 23px;
+  width: 23px;
   background-color: #ffffff;
   border: 1px solid #CCCCCC;
   border-radius: 32px;
@@ -249,42 +267,10 @@ p{
   background: #7A5CFA;
 }
 
-.big {
-  font-size: 1.2em;
-}
-
 .custom-dropdown {
   position: relative;
   display: inline-block;
   vertical-align: middle;
-}
-
-.custom-dropdown select {
-  cursor: pointer;
-  background-color: #ffffff;
-  color: #000000;
-  font-size: inherit;
-  padding: .5em;
-  padding-right: 2.5em;	
-  border: 0;
-  margin: 0;
-  border-radius: 3px;
-  text-indent: 0.01px;
-  text-overflow: '';
-  border: 2px solid #7A5CFA;
-  border-radius: 8px 8px 0px 0px;
-  width: 100%;
-}
-
-.custom-dropdown::before,
-.custom-dropdown::after {
-  content: "";
-  position: absolute;
-  pointer-events: none;
-}
-
-select:active, select:focus{
-  outline:none
 }
 
 .container__buttons{
@@ -298,6 +284,62 @@ button{
   border-radius: 8px;
   outline: none;
   border: none;
+}
+
+
+ul{
+  background: url('./images/arrow.svg') no-repeat right;
+  background-position: 96.5%; 
+  border: 2px solid #7A5CFA;
+  border-radius: 8px 8px 0px 0px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  padding-left: 10px;
+}
+
+ul span{
+  display: flex;
+  align-items: center;
+  padding-left: 15px;
+  height: 56px;
+}
+
+.menu {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+}
+
+.menu.open {
+  background: url('./images/arrowRotated.svg') no-repeat right;
+  background-position: 96.5%; 
+  display: block;
+  height: 56px;
+}
+
+.menu li {
+  display: none;
+  background: #FFFFFF;
+
+}
+
+.menu.open li {
+  display: flex;
+  align-items: center;
+  padding-left: 15px;
+  height: 56px;
+  border: 1px solid #CCCCCC;
+}
+
+.menu.open li:hover{
+  background: #7A5CFA;
+  color: white;
+}
+
+.menu.open li:last-child{
+  border-radius: 0px 0px 8px 8px;
 }
 
 .cancel{
